@@ -17,8 +17,11 @@ const __dirname = path.dirname(__filename);  // Get the directory name
 
 
 //middleware
+//parse json
+app.use(express.json());
 //serve static files from public
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 //routes
 //Getting Dogs
@@ -50,7 +53,7 @@ app.post('/add-dog', async (req, res) => {
   // Add the new dog to the dogs array
   dogs.push(newDog);
 
-  // Update the dogs.mjs file with the new data
+  // Updating the dogs.mjs file with the new data
   const dogsFilePath = path.join(__dirname, 'dogs.mjs');
   const dogsFileContent = `export const dogs = ${JSON.stringify(dogs, null, 2)};`;
 

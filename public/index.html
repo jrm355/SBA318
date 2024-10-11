@@ -3,86 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dog Casting Form</title>
+    <title>Good Dog Casting</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
-            text-align: center;
         }
         .container {
-            margin: 50px auto;
+            width: 60%;
+            margin: 0 auto;
             padding: 20px;
-            width: 50%;
             background-color: #d3e0ea;
+            text-align: center;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
-        input[type="text"], select {
-            width: 80%;
+        input, button {
             padding: 10px;
             margin: 10px 0;
-            border: 1px solid #ccc;
             border-radius: 4px;
         }
         button {
-            padding: 10px 20px;
             background-color: #007bff;
             color: white;
             border: none;
-            border-radius: 4px;
             cursor: pointer;
-        }
-        a {
-            text-decoration: none;
-            color: white;
-            padding: 10px 20px;
-            background-color: #28a745;
-            border-radius: 4px;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>Dog Casting Form</h1>
-    <form>
-        <input type="text" id="dogName" name="dogName" placeholder="Enter dog name"><br>
-        <input type="text" id="breed" name="breed" placeholder="Enter breed"><br>
-        <input type="text" id="size" name="size" placeholder="Enter size"><br>
+    <h1>Good Dog Casting</h1>
+    <form id="dogForm">
+        <input type="text" id="dogName" name="dogName" placeholder="Enter dog name" required><br>
+        <input type="text" id="breed" name="breed" placeholder="Enter breed" required><br>
+        <input type="text" id="size" name="size" placeholder="Enter size" required><br>
         <button type="submit">Submit</button>
     </form>
 
-    <!-- Button to go to the casting page -->
     <div style="margin-top: 20px;">
         <a href="/casting">Go to Casting Page</a>
     </div>
 </div>
+
 <script>
-    // Handle the form submission
-    document.getElementById('dogForm').addEventListener('submit', async function(event) {
-        event.preventDefault();
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById('dogForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
 
-        const dogData = {
-            name: document.getElementById('dogName').value,
-            breed: document.getElementById('breed').value,
-            size: document.getElementById('size').value
-        };
+            const dogData = {
+                name: document.getElementById('dogName').value,
+                breed: document.getElementById('breed').value,
+                size: document.getElementById('size').value
+            };
 
-        // Send the form data to the server via POST
-        const response = await fetch('/add-dog', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(dogData)
+            // Send the form data to the server via POST
+            const response = await fetch('/add-dog', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dogData)
+            });
+
+            if (response.ok) {
+                alert('Dog added successfully!');
+            } else {
+                alert('Error adding dog.');
+            }
         });
-
-        if (response.ok) {
-            alert('Dog added successfully!');
-        } else {
-            alert('Error adding dog.');
-        }
     });
 </script>
 

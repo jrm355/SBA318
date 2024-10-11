@@ -1,0 +1,19 @@
+THIS SHOULD BE DELETED ONCE COMPLETED TO AVOID REDUNDANCY
+THINGS TO FIX, check up on tomorrow
+- don’t use Apikeys usage, use query parameters to filter through data
+- Error handling middleware
+- Create view engine
+- Need patch/put request
+- Create patch/ put request
+- Create delete request
+- Utilize route paramaters
+- Create and render at least one view using a view template and template engine. This can be a custom template engine or a third-party engine.
+- 
+
+Reference pages
+https://github.com/comeaudc/nodeJSFormExample/tree/main/views
+https://github.com/comeaudc/RESTful_APIs/blob/main/server.mjs
+
+newDog.file
+
+Method, req.body

@@ -19,17 +19,19 @@ listen
 commenting in routes and middleware
 -adding in base HTML pagesv(copied from previous projects and slightly adjusted)
 
-
-                2 routes (crud order)
-
-
-
-                    3 middleware
+2 routes (crud order)
+make routes data/dogs.mjs to appear on casting.html
+add routes for pages
+adding route to allow dogs submitted to be shown on page
 
 
+3 middleware
+
+Parse json
 
 
-                    4 engine
+
+4 engine
 
 
 
