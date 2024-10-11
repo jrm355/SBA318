@@ -1,1 +1,1 @@
-# This is my server
+# This is my server for a friendship website of Dog owners (idea would be the match people based on dog type, age, etc.)

@@ -17,6 +17,7 @@ imports
 creating instance of express
 listen
 commenting in routes and middleware
+-adding in base HTML pagesv(copied from previous projects and slightly adjusted)
 
 
                 2 routes (crud order)
