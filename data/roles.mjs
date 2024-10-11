@@ -1,16 +1,14 @@
 export const roles = [
     {
-        id: 3,
+        id: 1,
         userId: 1,
-        title: "delectus ullam et corporis nulla voluptas sequi",
-        content:
-            "non et quaerat ex quae ad maiores\nmaiores recusandae totam aut blanditiis mollitia quas illo\nut voluptatibus voluptatem\nsimilique nostrum eum",
-    },
+        title: "Mr. Peanut Butter's adventure",
+        synopsis:"Mr Peanut Butter goes on an adventure"
+        },
     {
-        id: 4,
+        id: 2,
         userId: 2,
-        title: "iusto eius quod necessitatibus culpa ea",
-        content:
-            "odit magnam ut saepe sed non qui\ntempora atque nihil\naccusamus illum doloribus illo dolor\neligendi repudiandae odit magni similique sed cum maiores",
+        title: "The bad dog",
+        synopsis:"There are no bad dogs, and Rufus finds that out."
     }
 ];

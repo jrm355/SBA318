@@ -40,19 +40,38 @@
 </head>
 <body>
 
-<div class="container">
-    <h1>Good Dog Casting</h1>
-    <button onclick="location.href='/'">Add New Actor</button>
+    <body>
 
-    <div class="dog-list">
-        <!-- Dynamic dog list rendered here -->
-        <div class="dog-item">
-            <p><strong>Dog Name:</strong> Example Dog</p>
-            <p><strong>Breed:</strong> Example Breed</p>
-            <p><strong>Size:</strong> Medium</p>
+        <div class="container">
+            <h1>Good Dog Casting</h1>
+            <button onclick="location.href='/'">Add New Actor</button>
+        
+            <div class="dog-list" id="dogList">
+                <!-- Dynamic dog list will be injected here -->
+            </div>
         </div>
-    </div>
-</div>
+
+
+<script>
+    // Fetching the dogs data from the API and display them
+
+    fetch('/api/dogs')
+        .then(response => response.json())
+        .then(data => {
+            const dogList = document.getElementById('dogList');
+            data.forEach(dog => {
+                const dogItem = document.createElement('div');
+                dogItem.classList.add('dog-item');
+                dogItem.innerHTML = `
+                    <p><strong>Dog Name:</strong> ${dog.name}</p>
+                    <p><strong>Breed:</strong> ${dog.breed}</p>
+                    <p><strong>Size:</strong> ${dog.size}</p>
+                `;
+                dogList.appendChild(dogItem);
+            });
+        })
+        .catch(error => console.error('Error fetching dogs:', error));
+</script>
 
 </body>
 </html>
