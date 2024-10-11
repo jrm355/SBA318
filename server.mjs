@@ -3,11 +3,9 @@
 import express from 'express';
 import path from 'path'; 
 import { fileURLToPath } from 'url';
-// import userRoutes from './routes/userRoutes.mjs';
-// import roleRoutes from './routes/postRoutes.mjs';
 import bodyParser from 'body-parser';
 import { dogs } from './data/dogs.mjs';
-
+import { writeFile } from 'fs/promises';  // Import fs/promises to modify dogs.mjs, inputs added to dogs.mjs
 
 //instance of express 
 const app = express();
@@ -34,6 +32,43 @@ app.get('/', (req, res) => {
 });
 
 //casting page
+app.get('/casting', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'casting.html'));
+});
+
+app.post('/add-dog', async (req, res) => {
+  const { name, breed, size } = req.body;
+
+  // Create a new dog object
+  const newDog = {
+      id: dogs.length + 1,
+      name,
+      breed,
+      size
+  };
+
+  // Add the new dog to the dogs array
+  dogs.push(newDog);
+
+  // Update the dogs.mjs file with the new data
+  const dogsFilePath = path.join(__dirname, 'dogs.mjs');
+  const dogsFileContent = `export const dogs = ${JSON.stringify(dogs, null, 2)};`;
+
+  try {
+      await writeFile(dogsFilePath, dogsFileContent);
+      res.status(200).json({ message: 'Dog added successfully!' });
+  } catch (error) {
+      console.error('Error writing to dogs.mjs:', error);
+      res.status(500).json({ message: 'Error adding dog' });
+  }
+});
+
+// Route to serve the homepage (input form)
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+// Route to serve the casting page
 app.get('/casting', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'casting.html'));
 });
