@@ -1,0 +1,37 @@
+THIS DOCUMENT IS TO KEEP TRACK OF MY STEPS AND TO USE AS A BLUEPRINT FOR FUTURE SERVERS
+                1 server/ setup
+        A Setup
+npm init -y (json)
+npm i express (download express)
+.gitignore (hide extensions from github)
+creating files, readme, creating routes (postRoutes and userRoutes)
+npm i nodemon --save-dev nodemon (download nodemon)
+npm install body-parser (installing body-parcer)
+accessing thundercloud
+adding start to .json
+testing npm start (successful) (ctrl c to not kill my battery)
+creating styles.css and index.html files (may utilize may not)
+
+       B server.mjs Boiler Plate
+imports
+creating instance of express
+listen
+commenting in routes and middleware
+
+
+                2 routes (crud order)
+
+
+
+                    3 middleware
+
+
+
+
+                    4 engine
+
+
+
+Need to save data in some sort of array
+
+
