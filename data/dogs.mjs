@@ -22,5 +22,29 @@ export const dogs = [
     "name": "monkey",
     "breed": "poodle",
     "size": "small"
+  },
+  {
+    "id": 5,
+    "name": "monkey",
+    "breed": "poodle",
+    "size": "big"
+  },
+  {
+    "id": 6,
+    "name": "cat",
+    "breed": "cat",
+    "size": "cat"
+  },
+  {
+    "id": 7,
+    "name": "mister peanut",
+    "breed": "peanut",
+    "size": "it's a peanut"
+  },
+  {
+    "id": 8,
+    "name": "another dog",
+    "breed": "another dog",
+    "size": "super big"
   }
 ];

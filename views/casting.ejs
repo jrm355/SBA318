@@ -1,0 +1,36 @@
+<!-- views/casting.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casting Page</title>
+  <link rel="stylesheet" href="/styles.css"> <!-- Assuming you have a styles.css file -->
+</head>
+<body>
+  <h1>Dog Casting Page</h1>
+
+  <h2>List of Dogs</h2>
+  <ul>
+    <% dogs.forEach(dog => { %>
+      <li>
+        <strong>Name:</strong> <%= dog.name %> <br>
+        <strong>Breed:</strong> <%= dog.breed %> <br>
+        <strong>Size:</strong> <%= dog.size %>
+      </li>
+    <% }) %>
+  </ul>
+
+  <h2>Available Roles</h2>
+  <ul>
+    <% roles.forEach(role => { %>
+      <li>
+        <strong>Title:</strong> <%= role.title %> <br>
+        <strong>Synopsis:</strong> <%= role.synopsis %>
+      </li>
+    <% }) %>
+  </ul>
+
+  <a href="/">Go Back to Add Another Dog</a>
+</body>
+</html>

@@ -28,10 +28,14 @@ adding route to allow dogs submitted to be shown on page
 3 middleware
 
 Parse json
-
-
+utilizing body parcer (playing around with body-parcer)
+utilizing morgan (playing around with morgan)
 
 4 engine
+npm i ejs
+I got screwed up by dealing with the view engine last. 
+I did more work than neccessary for lesser results
+DO ALL INSTALLATIONS INITIALLY, DECIDE ON WHAT VIEW ENGINE TO UTILIZE, LABEL AND UTILIZE ACCORDINGLY
 
 
 
