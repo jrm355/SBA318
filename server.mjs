@@ -10,7 +10,8 @@ import morgan from 'morgan';
 import { roles } from './data/roles.mjs';
 import postRoutes from './routes/postRoute.mjs';
 import userRoutes from './routes/userRoute.mjs'
-import deleteRoute from './routes/deleteRoute.mjs'; // Import delete route
+import deleteRoute from './routes/deleteRoute.mjs'; 
+import putRoute from './routes/putRoute.mjs';
 
 //instance of express 
 const app = express();
@@ -80,9 +81,10 @@ app.post('/add-dog', async (req, res) => {
   }
 });
 
-//route to delte
+//route to delete, put, user
 app.use('/', userRoutes);
 app.use('/', deleteRoute); 
+app.use('/api', putRoute); 
 
 // Error-handling middleware
 app.use((err, req, res, next) => {
@@ -90,7 +92,7 @@ app.use((err, req, res, next) => {
 
   
   // Send a generic response to the client
-  res.status(500).json({ message: 'An unexpected error occurred!' });
+  res.status(500).json({ message: 'error bro' });
 });
 
 // Start the server

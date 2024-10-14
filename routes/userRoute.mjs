@@ -1,7 +1,7 @@
 // Allows you to got to http://localhost:3000/dogs/breed/Cat , Husky, Pug to filter out. 
 
 import express from 'express';
-import { dogs } from '../data/dogs.mjs'; // Import the dogs array
+import { dogs } from '../data/dogs.mjs';
 
 const router = express.Router();
 
@@ -9,7 +9,7 @@ const router = express.Router();
 router.get('/dogs/breed/:breed', (req, res) => {
   const { breed } = req.params;
 
-  // Filter the dogs by the breed from the URL param
+  // Filter the dogs by the breed f
   const filteredDogs = dogs.filter((dog) => dog.breed.toLowerCase() === breed.toLowerCase());
 
   // If no dogs match the breed

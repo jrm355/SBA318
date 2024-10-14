@@ -18,7 +18,7 @@ router.post('/add-dog', async (req, res) => {
     return res.status(400).json({ message: 'Only Husky, Pug, or Cat allowed.' });
   }
 
-  // Create a new dog object
+  // Create a new dog 
   const newDog = {
     id: dogs.length + 1,
     name,
@@ -26,7 +26,7 @@ router.post('/add-dog', async (req, res) => {
     size,
   };
 
-  // Adding new dog to the dogs array
+  // Adding new dog to dogs array
   dogs.push(newDog);
 
   // Update the dogs.mjs file with the new data

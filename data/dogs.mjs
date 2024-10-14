@@ -58,5 +58,11 @@ export const dogs = [
     "name": "monkey",
     "breed": "Cat",
     "size": "small"
+  },
+  {
+    "id": 11,
+    "name": "hi",
+    "breed": "Husky",
+    "size": "big"
   }
 ];
