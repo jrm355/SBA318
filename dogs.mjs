@@ -19,7 +19,7 @@ export const dogs = [
   },
   {
     "id": 4,
-    "name": "monkey",
+    "name": "mister",
     "breed": "poodle",
     "size": "small"
   }

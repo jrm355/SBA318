@@ -6,6 +6,7 @@ import { fileURLToPath } from 'url';
 import bodyParser from 'body-parser';
 import { dogs } from './data/dogs.mjs';
 import { writeFile } from 'fs/promises';  // Import fs/promises to modify dogs.mjs, inputs added to dogs.mjs
+import morgan from 'morgan';
 
 //instance of express 
 const app = express();
@@ -22,6 +23,15 @@ app.use(express.json());
 //serve static files from public
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(morgan('dev'));  // Log requests to the console
+
+//body-parser
+app.use(bodyParser.urlencoded({ extended: true }));  // For parsing form data
+
+//cache control headers for performance
+app.use(express.static(path.join(__dirname, 'public'), {
+  maxAge: '1d',  // Cache static files for 1 day
+}));
 
 //routes
 //Getting Dogs
@@ -54,7 +64,7 @@ app.post('/add-dog', async (req, res) => {
   dogs.push(newDog);
 
   // Updating the dogs.mjs file with the new data
-  const dogsFilePath = path.join(__dirname, 'dogs.mjs');
+  const dogsFilePath = path.join(__dirname, 'data', 'dogs.mjs');
   const dogsFileContent = `export const dogs = ${JSON.stringify(dogs, null, 2)};`;
 
   try {
@@ -75,6 +85,13 @@ app.get('/', (req, res) => {
 app.get('/casting', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'casting.html'));
 });
+
+
+// error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something went wrong!');
+}); 
 
 // Listen
 app.listen(PORT, () => {
