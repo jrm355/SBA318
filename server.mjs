@@ -8,7 +8,8 @@ import { dogs } from './data/dogs.mjs';
 import { writeFile } from 'fs/promises';  // Import fs/promises to modify dogs.mjs, inputs added to dogs.mjs
 import morgan from 'morgan';
 import { roles } from './data/roles.mjs';
-import userRoutes from './routes/userRoute.mjs';
+import postRoutes from './routes/postRoute.mjs';
+import userRoutes from './routes/userRoute.mjs'
 
 //instance of express 
 const app = express();
@@ -34,7 +35,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));  // For parsing form data
 //utilize morgan
 app.use(morgan('dev'));  // Log requests to the console
-app.use('/', userRoutes);
+
+
+app.use('/', postRoutes);
+app.use('/', userRoutes); // Use the userRoutes, including the breed filter route
+
+// Error-handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something went wrong!');
+});
 //routes
 //Getting Dogs
 app.get('/', (req, res) => {
@@ -68,6 +78,7 @@ app.post('/add-dog', async (req, res) => {
     next(error); // Pass the error to the error-handling middleware
   }
 });
+
 // Error-handling middleware
 app.use((err, req, res, next) => {
   console.error('Error: ', err.stack);  // Log the error stack trace for debugging
