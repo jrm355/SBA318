@@ -1,4 +1,4 @@
-//filtering 
+//filtering in input
 import express from 'express';
 import { dogs } from '../data/dogs.mjs';
 import { writeFile } from 'fs/promises';

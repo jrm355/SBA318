@@ -23,7 +23,7 @@ commenting in routes and middleware
 make routes data/dogs.mjs to appear on casting.html
 add routes for pages
 adding route to allow dogs submitted to be shown on page
-
+added params in order to filter out specific breeds if wanted.
 
 3 middleware
 

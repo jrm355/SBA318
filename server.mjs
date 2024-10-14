@@ -10,6 +10,7 @@ import morgan from 'morgan';
 import { roles } from './data/roles.mjs';
 import postRoutes from './routes/postRoute.mjs';
 import userRoutes from './routes/userRoute.mjs'
+import deleteRoute from './routes/deleteRoute.mjs'; // Import delete route
 
 //instance of express 
 const app = express();
@@ -78,6 +79,10 @@ app.post('/add-dog', async (req, res) => {
     next(error); // Pass the error to the error-handling middleware
   }
 });
+
+//route to delte
+app.use('/', userRoutes);
+app.use('/', deleteRoute); 
 
 // Error-handling middleware
 app.use((err, req, res, next) => {
