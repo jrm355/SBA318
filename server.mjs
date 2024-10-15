@@ -1,11 +1,10 @@
 //IMPORTS
-
 import express from 'express';
 import path from 'path'; 
 import { fileURLToPath } from 'url';
 import bodyParser from 'body-parser';
 import { dogs } from './data/dogs.mjs';
-import { writeFile } from 'fs/promises';  // Import fs/promises to modify dogs.mjs, inputs added to dogs.mjs
+import { writeFile } from 'fs/promises'; 
 import morgan from 'morgan';
 import { roles } from './data/roles.mjs';
 import postRoutes from './routes/postRoute.mjs';
@@ -26,7 +25,6 @@ app.set('view engine', 'ejs');
 //defining where they are located
 app.set('views', path.join(__dirname, 'views'));
 
-
 //middleware
 //parse json
 app.use(express.json());
@@ -34,13 +32,14 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //body-parser
-app.use(bodyParser.urlencoded({ extended: true }));  // For parsing form data
+app.use(bodyParser.urlencoded({ extended: true }));
+// For parsing form data
 //utilize morgan
 app.use(morgan('dev'));  // Log requests to the console
 
 
 app.use('/', postRoutes);
-app.use('/', userRoutes); // Use the userRoutes, including the breed filter route
+app.use('/', userRoutes); 
 
 // Error-handling middleware
 app.use((err, req, res, next) => {
@@ -55,7 +54,7 @@ app.get('/', (req, res) => {
 
 // Route for the casting page, using EJS to render roles and dogs
 app.get('/casting', (req, res) => {
-  res.render('casting', { dogs, roles }); // Pass both dogs and roles to the EJS template
+  res.render('casting', { dogs, roles }); // Pass dogs and roles to the EJS template
 });
 
 // POST route to add new dog
@@ -77,7 +76,7 @@ app.post('/add-dog', async (req, res) => {
     await writeFile(dogsFilePath, dogsFileContent);
     res.redirect('/casting');
   } catch (error) {
-    next(error); // Pass the error to the error-handling middleware
+    next(error); // Pass error to the error-handling middleware
   }
 });
 
@@ -88,10 +87,11 @@ app.use('/api', putRoute);
 
 // Error-handling middleware
 app.use((err, req, res, next) => {
-  console.error('Error: ', err.stack);  // Log the error stack trace for debugging
+  console.error('Error: ', err.stack);
+  // Log the error stack trace for debugging
 
   
-  // Send a generic response to the client
+  // Send a response to the client
   res.status(500).json({ message: 'error bro' });
 });
 

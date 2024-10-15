@@ -4,7 +4,7 @@
 //   -H "Content-Type: application/json" \
 //   -d '{
 //     "title": "Updated Title for Mr. Peanut Butter",
-//     "synopsis": "A new exciting adventure"
+//     "synopsis": "A new adventure"
 //   }'
 
 

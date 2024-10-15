@@ -1,4 +1,4 @@
-//filtering in input
+//filtering in input so only Husky, Pug, or Cat are allowed
 import express from 'express';
 import { dogs } from '../data/dogs.mjs';
 import { writeFile } from 'fs/promises';

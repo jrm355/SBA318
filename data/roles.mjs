@@ -3,7 +3,7 @@ export const roles = [
     "id": 1,
     "userId": 1,
     "title": "Updated Title for Mr. Peanut Butter",
-    "synopsis": "A new exciting adventure"
+    "synopsis": "A new adventure"
   },
   {
     "id": 2,
